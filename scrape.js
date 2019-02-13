@@ -29,7 +29,8 @@ var fs = require('fs');
       const liensArray = [...liensNode];
       return liensArray.map(compact => ({
         nom: compact.querySelector("h3").innerText,
-        href: compact.querySelector("h3").firstElementChild.href
+        href: compact.querySelector("h3").firstElementChild.href,
+        price: parseFloat(((compact.querySelector(".priceTag").innerText).split(' '))[0]).toFixed(2)
       }))
     });
     hotelrest.push(...liens);
